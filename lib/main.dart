@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'core/theme/theme.dart';
 import 'main_development.dart' as development;
 import 'modules/auth/ui/ui.dart';
 
@@ -14,14 +15,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(
-          primary: Colors.teal[800],
-          onPrimary: Colors.black,
-          seedColor: Colors.grey[900]!,
-        ),
-      ),
+      theme: AppTheme.lightTheme,
       home: const LoginView(),
     );
   }

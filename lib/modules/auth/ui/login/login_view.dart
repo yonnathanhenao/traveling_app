@@ -15,18 +15,15 @@ class _LoginViewState extends State<LoginView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: Dimensions.of(context).edgeInsetsScreenSymmetric,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextWidget(
               'Login',
-              style: textStyle(context).copyWith(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
+              style: Theme.of(context).textTheme.headlineLarge,
             ),
-            const SizedBox(height: 16),
+            Spacing.v16,
             LoginForm(
               emailController: emailController,
               passwordController: passwordController,
@@ -34,12 +31,15 @@ class _LoginViewState extends State<LoginView> {
             ),
             Align(
               alignment: Alignment.centerRight,
-              child: TextWidget(
-                'Recover password',
-                style: TextStyle(
-                  color: Colors.blue,
-                  decoration: TextDecoration.underline,
-                  decorationColor: Colors.blue,
+              child: TextButton(
+                onPressed: () {},
+                child: TextWidget(
+                  'Recover password',
+                  style: TextStyle(
+                    color: Colors.blue,
+                    decorationColor: Colors.blue,
+                    decoration: TextDecoration.underline,
+                  ),
                 ),
               ),
             ),

@@ -6,8 +6,12 @@ class ButtonWidget extends StatelessWidget {
     required this.text,
     required this.onPressed,
     this.width,
+    this.fullWidth = false,
+    this.enabled = true,
   });
 
+  final bool fullWidth;
+  final bool enabled;
   final String text;
   final double? width;
   final VoidCallback? onPressed;
@@ -15,12 +19,12 @@ class ButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: width ?? double.infinity,
+      width: fullWidth ? double.infinity : width,
       child: ElevatedButton(
-        onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           backgroundColor: Theme.of(context).colorScheme.primary,
         ),
+        onPressed: enabled ? onPressed : null,
         child: TextWidget(text),
       ),
     );

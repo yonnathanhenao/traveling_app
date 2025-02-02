@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:traveling_app/modules/auth/domain/domain.dart';
-import 'package:traveling_app/shared/utils/utils.dart';
+import 'package:traveling_app/core/utils/utils.dart';
 
 class LoginViewModel extends ChangeNotifier {
   LoginViewModel({required AuthRepository authRepository})

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:traveling_app/shared/utils/result.dart';
+import 'package:traveling_app/core/utils/result.dart';
 
 typedef CommandAction<T> = Future<Result<T>> Function();
 typedef CommandActionWithArgs<T, A> = Future<Result<T>> Function(A);
