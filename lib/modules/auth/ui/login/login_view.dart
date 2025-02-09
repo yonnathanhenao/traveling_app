@@ -8,9 +8,6 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,9 +22,13 @@ class _LoginViewState extends State<LoginView> {
             ),
             Spacing.v16,
             LoginForm(
-              emailController: emailController,
-              passwordController: passwordController,
-              onSubmit: () {},
+              loading: context.watch<LoginViewModel>().loginCommand.running,
+              onSubmit: (email, password) =>
+                  context.read<LoginViewModel>().onLoginPressed(
+                        context,
+                        email,
+                        password,
+                      ),
             ),
             Align(
               alignment: Alignment.centerRight,

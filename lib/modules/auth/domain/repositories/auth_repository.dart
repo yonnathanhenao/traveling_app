@@ -1,5 +1,5 @@
-import 'package:traveling_app/core/utils/result.dart';
+part of '../domain.dart';
 
 abstract class AuthRepository {
-  Future<Result<void>> login(String email, String password);
+  Future<Result<String>> login(String email, String password);
 }

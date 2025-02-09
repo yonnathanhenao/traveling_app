@@ -8,10 +8,12 @@ class ButtonWidget extends StatelessWidget {
     this.width,
     this.fullWidth = false,
     this.enabled = true,
+    this.loading = false,
   });
 
   final bool fullWidth;
   final bool enabled;
+  final bool loading;
   final String text;
   final double? width;
   final VoidCallback? onPressed;
@@ -25,7 +27,23 @@ class ButtonWidget extends StatelessWidget {
           backgroundColor: Theme.of(context).colorScheme.primary,
         ),
         onPressed: enabled ? onPressed : null,
-        child: TextWidget(text),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            if (loading) ...[
+              SizedBox(
+                width: 24,
+                height: 24,
+                child: CircularProgressIndicator(
+                  strokeWidth: 2,
+                  backgroundColor: Colors.white,
+                ),
+              ),
+              Spacing.h8,
+            ] else
+              TextWidget(text),
+          ],
+        ),
       ),
     );
   }

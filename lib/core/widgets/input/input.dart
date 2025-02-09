@@ -39,20 +39,19 @@ class _InputWidgetState extends State<InputWidget> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return TextFormField(
-      controller: widget.controller,
-      obscureText: widget.obscureText,
-      keyboardType: widget.keyboardType,
-      validator: _validator,
-      onChanged: _onChanged,
-      decoration: InputDecoration(
-        hintText: widget.hintText,
-        labelText: widget.labelText,
-        floatingLabelBehavior: FloatingLabelBehavior.always,
-        border: OutlineInputBorder(),
-        errorText: errorText,
-      ),
-    );
-  }
+  Widget build(BuildContext context) => TextFormField(
+        controller: widget.controller,
+        obscureText: widget.obscureText,
+        keyboardType: widget.keyboardType,
+        autovalidateMode: AutovalidateMode.onUserInteraction,
+        validator: _validator,
+        onChanged: _onChanged,
+        decoration: InputDecoration(
+          hintText: widget.hintText,
+          labelText: widget.labelText,
+          floatingLabelBehavior: FloatingLabelBehavior.always,
+          border: OutlineInputBorder(),
+          errorText: errorText,
+        ),
+      );
 }
